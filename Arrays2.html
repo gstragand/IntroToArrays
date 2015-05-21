@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Array Example 0</title>
+<script>
+var myArray = [23, 38, 14, -3, 0, 14, 9, 103, 0, 56];
+function swap(pos1, pos2) {
+	var temp = myArray[pos1];
+	myArray[pos1] = myArray[pos2];
+	myArray[pos2] = temp;	
+}
+function bubbleSort() {
+	for (i = 0; i < myArray.length - 1; i++) {
+		for (j = i; j < myArray.length; j++) {
+			if (myArray[i] > myArray[j]) { 
+				swap(i, j);
+			}
+		}
+	}
+	update("modified");
+}
+function init() {
+	update("original");
+}
+function update(id) {
+	var content = "<ul>";
+	for (i = 0; i < myArray.length; i++) {
+		content = content.concat("<li>" + myArray[i] + "</li>");
+	}
+	content = content.concat("</ul>");
+	document.getElementById(id).innerHTML = content;
+}
+</script>
+<style>
+.boxed {
+  border: 1px solid blue;
+}
+</style>
+</head>
+<body onload="init()">
+<h1>Array Example 0</h1>
+<table width="100%">
+<tr><th align="left">Original Array</th><th align="left">Modified Array</th></tr>
+<tr><td><div class="boxed"><div id="original"></div></div></td><td><div class="boxed"><div id="modified"></div></div></td></tr>
+</table>
+</table>
+<center><button onclick="bubbleSort()">Sort</button></center>
+</body>
+</html>
