@@ -12,7 +12,7 @@ function swap(pos1, pos2) {
 }
 function bubbleSort() {
 	for (i = 0; i < myArray.length - 1; i++) {
-		for (j = i; j < myArray.length; j++) {
+		for (j = i + 1; j < myArray.length; j++) {
 			if (myArray[i] > myArray[j]) { 
 				swap(i, j);
 			}
